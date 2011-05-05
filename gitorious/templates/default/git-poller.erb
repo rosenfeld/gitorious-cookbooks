@@ -1,0 +1,16 @@
+#!/bin/sh
+# Start/stop the git poller    
+# Depends on some stomp server like activemq. Required-Start is not set to activemq because
+# it is not compatible with LSBInitScripts yet as installed by chef as a runit service. So,
+# we're starting it as the last item
+### BEGIN INIT INFO    
+# Provides:          git-poller    
+# Required-Start:    $all
+# Required-Stop:    
+# Default-Start:     2 3 4 5    
+# Default-Stop:      1    
+# Short-Description: Gitorious poller    
+# Description:       Gitorious poller    
+### END INIT INFO    
+
+/bin/su git -c "cd <%= @deploy_path %>; RAILS_ENV=production script/poller $@"  

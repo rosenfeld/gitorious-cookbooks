@@ -1,0 +1,10 @@
+<%= @deploy_path %>/log/*log {
+    missingok
+    notifempty
+    sharedscripts
+    postrotate
+        /etc/init.d/git-daemon restart > /dev/null 2>/dev/null || true
+        /etc/init.d/git-ultrasphinx restart > /dev/null 2>/dev/null || true
+        /bin/touch <%= @deploy_path %>/tmp/restart.txt > /dev/null 2>/dev/null || true
+    endscript
+}

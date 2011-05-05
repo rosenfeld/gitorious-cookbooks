@@ -1,0 +1,17 @@
+default[:gitorious][:storage_dir]          = '/var/git'
+default[:gitorious][:deploy_path]          = '/var/www/gitorious'
+default[:gitorious][:host]                 = 'gitorious.local'
+default[:gitorious][:git][:url]            = "git://gitorious.org/gitorious/mainline.git"
+default[:gitorious][:git][:reference]      = "master"
+default[:gitorious][:support_email]        = "support@gitorious.local"
+default[:gitorious][:notification_emails]  = "support@gitorious.local"
+default[:gitorious][:public_mode]          = "false"
+default[:gitorious][:locale]               = "en"
+default[:gitorious][:only_admin_create]    = "false"
+default[:gitorious][:hide_http_clone_urls] = "false"
+default[:gitorious][:db][:host]            = "localhost"
+default[:gitorious][:db][:database]        = "gitorious"
+default[:gitorious][:db][:user]            = "gitorious"
+default[:gitorious][:db][:password]        = "gitorious"
+default[:gitorious][:admin][:email]        = "admin@gitorious.local"
+default[:gitorious][:admin][:password]     = "password"
