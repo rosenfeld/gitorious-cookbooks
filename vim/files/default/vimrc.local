@@ -1,0 +1,38 @@
+syntax on
+set background=dark
+colorscheme koehler
+"improve autocomplete menu color
+highlight Pmenu ctermbg=blue ctermfg=gray gui=bold guibg=blue guifg=gray
+
+filetype plugin indent on
+
+" remember cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+set showmatch		" Show matching brackets.
+set ignorecase		" Do case insensitive matching
+set smartcase		" Do smart case matching
+set incsearch		" Incremental search
+
+set wildmode=list:longest   "make cmdline tab completion similar to bash
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~,.git,*.class,*.jar "stuff to ignore when tab completing
+
+
+set number
+
+set expandtab
+set autoindent
+set shiftwidth=2
+set tabstop=2
+
+set laststatus=2
+"set statusline=%f
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+
+" edit file expanding path to directory of the current file
+nmap ,f :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+nmap ,s :split <C-R>=expand("%:p:h") . "/" <CR>
+
