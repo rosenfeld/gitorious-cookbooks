@@ -194,3 +194,9 @@ template "/etc/logrotate.d/gitorious" do
   mode        "0644"
   variables   :deploy_path => deploy_path
 end
+
+template "/usr/local/bin/gitorious" do
+  source      "gitorious.erb"
+  mode        "0755"
+  variables   :deploy_path => deploy_path
+end
