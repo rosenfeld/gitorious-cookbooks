@@ -1,0 +1,12 @@
+# This is /etc/smtp-addresses. It is part of the exim package
+#
+# This file contains smtp addresses to use for outgoing mail. Any local
+# part not in here will be qualified by the system domain as normal.
+#
+# It should contain lines of the form:
+#
+#user: someone@isp.com
+#otheruser: someoneelse@anotherisp.com
+git: <%= node[:smtp][:default_sender] %>
+www-data: <%= node[:smtp][:default_sender] %>
+root: <%= node[:smtp][:default_sender] %>
