@@ -23,4 +23,12 @@ First review the settings under /root/chef-solo/node.json. TODO: currently GMail
 
     chef-solo
 
+# Troubleshoot
+
 If you have any problems, please fill the issue [here](https://github.com/rosenfeld/gitorious-cookbooks/issues).
+
+If for some reason apache is not listening in port 443 after install, please restart apache manually:
+
+    invoke-rc.d apache2 restart
+
+I have no idea why this happened to me once...
