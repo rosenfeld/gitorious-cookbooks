@@ -127,6 +127,7 @@ script "create gitorious database" do
     export RAILS_ENV=production
     rake db:setup
     echo -e "#{node[:gitorious][:admin][:email]}\\n#{node[:gitorious][:admin][:password]}" | script/create_admin
+    chown -R git:git .
   }
   not_if "mysql -e 'show databases' | grep -q #{db_database}"
 end
