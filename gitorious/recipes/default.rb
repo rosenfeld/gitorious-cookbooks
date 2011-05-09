@@ -167,7 +167,7 @@ end
 
 cron "gitorious_ultrasphinx_reindexing" do
   user        gitorious_user
-  command     "cd #{deploy_path} && rake ultrasphinx:index RAILS_ENV=production"
+  command     "cd #{deploy_path} && rake ultrasphinx:index RAILS_ENV=production 2>&1 >/dev/null"
 end
 
 service "git-ultrasphinx" do
