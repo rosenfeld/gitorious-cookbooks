@@ -14,7 +14,7 @@
  
 RETVAL=0
 PROG="git-daemon"
-GIT_DAEMON="RAILS_ENV=production <%= @deploy_path %>/script/git-daemon -d"
+GIT_DAEMON="cd <%= @deploy_path%>; RAILS_ENV=production <%= @deploy_path %>/script/git-daemon -d"
 LOCK_FILE=/var/lock/git-daemon
 PID_FILE=<%= @deploy_path %>/log/git-daemon.pid
  
