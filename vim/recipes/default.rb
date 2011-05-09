@@ -28,5 +28,5 @@ end
 update_editor = lambda { execute "update-alternatives --set editor /usr/bin/vim.basic" }
 ruby_block("Update editor alternatives to vim") do
   block &update_editor
-  not_if { File.identical? '/etc/alternatives/vi', '/usr/bin/vim.basic' }
+  not_if { File.identical? '/etc/alternatives/editor', '/usr/bin/vim.basic' }
 end
