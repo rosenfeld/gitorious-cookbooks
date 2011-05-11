@@ -6,9 +6,9 @@ For installing Gitorious in latest Debian stable using Opscode Chef for a comple
     echo "gem: --no-rdoc --no-ri" > /etc/gemrc
     apt-get install -y ruby ruby-dev libruby build-essential ssl-cert git
     cd /tmp
-    wget http://production.cf.rubygems.org/rubygems/rubygems-1.5.2.tgz
-    tar zxf rubygems-1.5.2.tgz
-    ruby rubygems-1.5.2/setup.rb --no-format-executable
+    wget http://production.cf.rubygems.org/rubygems/rubygems-1.4.2.tgz
+    tar zxf rubygems-1.4.2.tgz
+    ruby rubygems-1.4.2/setup.rb --no-format-executable
     gem install chef
 
     mkdir /etc/chef /root/chef-solo
