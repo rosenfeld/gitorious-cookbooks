@@ -93,7 +93,7 @@ execute "bundle --without development test" do
 end
 
 cookie_secret_filename = "#{deploy_path}/config/cookie_secret.txt"
-execute("apg -m 64 | tr -d '\n' > #{cookie_secret_filename}") { creates cookie_secret_filename }
+execute(%Q{apg -m 64 | tr -d '"' | tr -d '\n' > #{cookie_secret_filename}}) { creates cookie_secret_filename }
 ruby_block("fetch cookie secret") { block { node.set[:gitorious][:cookie_secret] = IO.read cookie_secret_filename } }
 
 template "#{deploy_path}/config/gitorious.yml" do
