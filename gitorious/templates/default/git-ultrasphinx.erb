@@ -13,13 +13,13 @@
 # Local modifications will be overwritten.
 
 RETVAL=0
-START_CMD="  cd <%= @deploy_path %> && rake ultrasphinx:daemon:start   RAILS_ENV=production"
-STOP_CMD="   cd <%= @deploy_path %> && rake ultrasphinx:daemon:stop    RAILS_ENV=production"
-RESTART_CMD="cd <%= @deploy_path %> && rake ultrasphinx:daemon:restart RAILS_ENV=production"
-STATUS_CMD=" cd <%= @deploy_path %> && rake ultrasphinx:daemon:status  RAILS_ENV=production" 
+START_CMD="  cd <%= @deploy_path %> && bundle exec rake ultrasphinx:daemon:start   RAILS_ENV=production"
+STOP_CMD="   cd <%= @deploy_path %> && bundle exec rake ultrasphinx:daemon:stop    RAILS_ENV=production"
+RESTART_CMD="cd <%= @deploy_path %> && bundle exec rake ultrasphinx:daemon:restart RAILS_ENV=production"
+STATUS_CMD=" cd <%= @deploy_path %> && bundle exec rake ultrasphinx:daemon:status  RAILS_ENV=production" 
 LOCK_FILE=/var/lock/git-ultrasphinx
 PID_FILE=<%= @deploy_path %>/db/sphinx/log/searchd.pid
- 
+
 case "$1" in
   start)
     /bin/su git -c "$START_CMD"
