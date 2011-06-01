@@ -125,7 +125,7 @@ script "create gitorious database" do
     mysqladmin create #{db_database}
     mysql -e "GRANT ALL ON #{db_database}.* TO '#{db_user}'@'localhost' IDENTIFIED BY '#{db_password}';"
     export RAILS_ENV=production
-    rake db:setup
+    bundle exec rake db:setup
     echo -e "#{node[:gitorious][:admin][:email]}\\n#{node[:gitorious][:admin][:password]}" | script/create_admin
     chown -R git:git .
   }
@@ -145,11 +145,11 @@ script "setup ultrasphinx for Gitorious" do
   cwd         deploy_path
   code %Q{
     export RAILS_ENV=production
-    rake ultrasphinx:bootstrap
+    bundle exec rake ultrasphinx:bootstrap
 
     aspell config dict-dir /usr/lib/aspell
     cp vendor/plugins/ultrasphinx/examples/ap.multi /usr/lib/aspell/
-    rake ultrasphinx:spelling:build
+    bundle exec rake ultrasphinx:spelling:build
 
     chown git:git config/ultrasphinx/production.conf
   }
@@ -167,7 +167,7 @@ end
 
 cron "gitorious_ultrasphinx_reindexing" do
   user        gitorious_user
-  command     "cd #{deploy_path} && rake ultrasphinx:index RAILS_ENV=production 2>&1 >/dev/null"
+  command     "cd #{deploy_path} && bundle exec rake ultrasphinx:index RAILS_ENV=production 2>&1 >/dev/null"
 end
 
 service "git-ultrasphinx" do
