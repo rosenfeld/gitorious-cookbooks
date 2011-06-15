@@ -11,3 +11,6 @@ gem install chef
 mkdir /etc/chef /root/chef-solo
 wget -O /etc/chef/solo.rb https://gist.github.com/raw/847256/chef-gitorious-etc-solo.rb
 wget -O /root/chef-solo/node.json https://gist.github.com/raw/847256/chef-gitorious-node-debian.json
+
+cd /root/chef-solo
+git clone git://github.com/rosenfeld/gitorious-cookbooks.git cookbooks
