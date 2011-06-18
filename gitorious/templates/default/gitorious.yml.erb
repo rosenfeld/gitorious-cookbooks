@@ -16,7 +16,7 @@ production:
   gitorious_client_port: <%= @http_port %>
 
   # Host the ./script/gitorious script should use:
-  gitorious_client_host: <%= node[:gitorious][:host] %>
+  gitorious_client_host: localhost
 
   # Host which is serving the gitorious app, eg "gitorious.org"
   gitorious_host: <%= node[:gitorious][:host] %>
