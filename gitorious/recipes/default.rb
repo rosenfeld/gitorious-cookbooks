@@ -151,9 +151,10 @@ script "setup ultrasphinx for Gitorious" do
     cp vendor/plugins/ultrasphinx/examples/ap.multi /usr/lib/aspell/
     bundle exec rake ultrasphinx:spelling:build
 
-    if [ $(apt-cache show sphinxsearch | grep Version | cut -d: -f2 | cut -d. -f1 | xargs echo) = 0 ]; then
-      if [ $(apt-cache show sphinxsearch | grep Version | cut -d: -f2 | cut -d. -f2 | xargs echo) <= 9 ]; then
-        if [ $(apt-cache show sphinxsearch | grep Version | cut -d: -f2 | cut -d. -f3 | xargs echo) <= 8 ]; then
+    if [ $(apt-cache show sphinxsearch | grep Version | cut -d: -f2 | cut -d. -f1 | xargs echo) -eq 0 ]; then
+      if [ $(apt-cache show sphinxsearch | grep Version | cut -d: -f2 | cut -d. -f2 | xargs echo) -le 9 ]; then
+        if [ $(apt-cache show sphinxsearch | grep Version | cut -d: -f2 | cut -d. -f3 | xargs echo) -le 8 ]; then
+          echo "Configuring sphinx with address instead of listen"
           sed -i "s/listen/address/g" config/ultrasphinx/production.conf
         fi
       fi
