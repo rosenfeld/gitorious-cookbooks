@@ -4,7 +4,7 @@ For installing Gitorious in latest Debian stable using Opscode Chef for a comple
 
     apt-get update
     echo "gem: --no-rdoc --no-ri" > /etc/gemrc
-    apt-get install -y ruby ruby-dev libruby build-essential ssl-cert git
+    apt-get install -y ruby ruby-dev libruby build-essential ssl-cert git || apt-get install -y ruby ruby-dev libruby build-essential ssl-cert libopenssl-ruby git-core
     cd /tmp
     wget http://production.cf.rubygems.org/rubygems/rubygems-1.4.2.tgz
     tar zxf rubygems-1.4.2.tgz
