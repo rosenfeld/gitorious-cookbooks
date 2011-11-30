@@ -60,6 +60,7 @@ git deploy_path do
   reference   node[:gitorious][:git][:reference]
   user        gitorious_user
   group       gitorious_user
+  enable_submodules true
   action      :sync
   notifies    :run, "execute[restart_gitorious_webapp]"
 end
