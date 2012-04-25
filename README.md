@@ -31,3 +31,11 @@ If for some reason apache is not listening in port 443 after install, please res
     invoke-rc.d apache2 restart
 
 I have no idea why this happened to me once...
+
+If git-daemon fails to start causing chef-solo to fail during the install:
+
+    sudo su git
+    cd /var/www/gitorious/script
+    bundle install
+    exit # logout of git user
+    chef-solo
