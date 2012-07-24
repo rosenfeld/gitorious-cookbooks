@@ -2,8 +2,9 @@ include_recipe "passenger_apache2::mod_rails"
 apache_module "rewrite"
 include_recipe "apache2::mod_ssl"
 
-%w( libonig-dev libyaml-dev geoip-bin libgeoip-dev libgeoip1 imagemagick libmagickwand-dev libaspell-dev
-    aspell mysql-server libmysqlclient-dev stompserver ssh apg sphinxsearch memcached ).each { |p| package p }
+%w( libonig-dev libyaml-dev geoip-bin libgeoip-dev libgeoip1 imagemagick libmagickwand-dev
+    libaspell-dev aspell mysql-server libmysqlclient-dev stompserver ssh apg sphinxsearch
+    memcached libxslt1-dev ).each { |p| package p }
 
 # comment the above line if you want to keep portmap and rpcbind
 %w( portmap rpcbind ).each {|p| package(p) { action :purge } }
