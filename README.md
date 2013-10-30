@@ -31,3 +31,7 @@ If for some reason apache is not listening in port 443 after install, please res
     invoke-rc.d apache2 restart
 
 I have no idea why this happened to me once...
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rosenfeld/gitorious-cookbooks/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
